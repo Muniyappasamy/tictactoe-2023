@@ -100,5 +100,57 @@ public class GameServiceTest {
 
         Assertions.assertEquals(true,gameService.horizontalWinStatus('O'));
     }
+    @Test
+    public void playerXverticalWinTestFirstCol(){
+        Player play1 = new Player('X',0,0);
+        Player play2 = new Player('X',1,0);
+        Player play3 = new Player('X',2,0);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+
+
+        Assertions.assertEquals(true,gameService.verticalWinStatus('X'));
+    }
+    @Test
+    public void playerXverticalWinTestSecondCol(){
+        Player play1 = new Player('X',0,1);
+        Player play2 = new Player('X',1,1);
+        Player play3 = new Player('X',2,1);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+
+
+        Assertions.assertEquals(true,gameService.verticalWinStatus('X'));
+    }
+    @Test
+    public void playerXhorizontalWinTestThirdCol(){
+        Player play1 = new Player('X',0,2);
+        Player play2 = new Player('X',1,2);
+        Player play3 = new Player('X',2,2);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+
+
+        Assertions.assertEquals(true,gameService.verticalWinStatus('X'));
+    }
+    @Test
+    public void playerOhorizontalWinTestFirstCol(){
+        Player play1 = new Player('O',0,0);
+        Player play2 = new Player('O',1,0);
+        Player play3 = new Player('O',2,0);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+
+
+        Assertions.assertEquals(true,gameService.verticalWinStatus('O'));
+    }
 
 }

@@ -35,5 +35,22 @@ public class GameService {
         return false;
 
     }
+    public Boolean verticalWinStatus(char playerId){
+
+        for(int col=0;col<BOARD_NUMBER;col++){
+            int totalPostion =0;
+            for(int row=0;row<BOARD_NUMBER;row++){
+                if(board[row][col] == playerId){
+                    totalPostion ++;
+                }
+            }
+            if(totalPostion == BOARD_NUMBER){
+
+                return true;
+            }
+        }
+        return false;
+
+    }
 
 }
