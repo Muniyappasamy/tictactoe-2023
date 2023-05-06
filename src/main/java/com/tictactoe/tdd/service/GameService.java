@@ -69,6 +69,12 @@ public class GameService {
                 diagonalOneOrTwoWinCase('X', 'T')) {
             return "Player X WON";
         }
+        else if(horizontalOrVeritcalWinStatus('O', 'H') ||
+                horizontalOrVeritcalWinStatus('O', 'V') ||
+                diagonalOneOrTwoWinCase('O', 'O') ||
+                diagonalOneOrTwoWinCase('O', 'T')){
+            return "Player O WON";
+        }
         return "";
 
     }

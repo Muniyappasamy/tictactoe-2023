@@ -304,6 +304,26 @@ public class GameServiceTest {
 
         Assertions.assertEquals("Player X WON", gameService.findGameState());
     }
+    @Test
+    public void playerOWonTheGame() {
+        Player play1 = new Player('X', 0, 0);
+        Player play2 = new Player('O', 0, 1);
+        Player play3 = new Player('X', 0, 2);
+        Player play4 = new Player('X', 1, 0);
+        Player play5 = new Player('O', 1, 1);
+        Player play6 = new Player('O', 2, 1);
+
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+        gameService.play(play4);
+        gameService.play(play5);
+        gameService.play(play6);
+       
+
+        Assertions.assertEquals("Player O WON", gameService.findGameState());
+    }
 
 
 }
