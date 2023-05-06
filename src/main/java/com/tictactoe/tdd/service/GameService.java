@@ -18,4 +18,22 @@ public class GameService {
 
     }
 
+    public Boolean horizontalWinStatus(char playerId){
+
+        for(int row=0;row<BOARD_NUMBER;row++){
+            int totalPostion =0;
+            for(int col=0;col<BOARD_NUMBER;col++){
+                if(board[row][col] == playerId){
+                    totalPostion ++;
+                }
+            }
+            if(totalPostion == BOARD_NUMBER){
+
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 }
