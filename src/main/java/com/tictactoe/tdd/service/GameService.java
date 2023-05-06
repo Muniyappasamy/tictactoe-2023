@@ -1,5 +1,7 @@
 package com.tictactoe.tdd.service;
 
+import com.tictactoe.tdd.model.Player;
+
 public class GameService {
 
     char[][] board;
@@ -10,9 +12,10 @@ public class GameService {
         board = new char[BOARD_NUMBER][BOARD_NUMBER];
 
     }
-    public void play(int row,int col, char playerId){
+    public void play(Player player){
 
-        board[row][col] = playerId;
+        board[player.getRowIndex()][player.getColumnIndex()] = player.getPlayerId();
 
     }
+
 }
