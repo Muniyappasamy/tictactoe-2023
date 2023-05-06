@@ -59,4 +59,21 @@ public class GameService {
 
     }
 
+    public Boolean diagonalTwoWinCase(char playerId) {
+
+        int totalposition = 0;
+        for (int row = BOARD_NUMBER - 1, col = 0; row >= 0; row--, col++) {
+
+            if (board[row][col] == playerId) {
+                totalposition++;
+            }
+        }
+        if (totalposition == BOARD_NUMBER) {
+            return true;
+        }
+        return false;
+
+    }
+
+
 }
