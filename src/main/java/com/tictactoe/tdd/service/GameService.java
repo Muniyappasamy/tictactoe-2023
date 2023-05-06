@@ -7,37 +7,53 @@ public class GameService {
     char[][] board;
     private static final int BOARD_NUMBER = 3;
 
-    public GameService(){
+    public GameService() {
 
         board = new char[BOARD_NUMBER][BOARD_NUMBER];
 
     }
-    public void play(Player player){
+
+    public void play(Player player) {
 
         board[player.getRowIndex()][player.getColumnIndex()] = player.getPlayerId();
 
     }
 
-    public Boolean horizontalOrVeritcalWinStatus(char playerId, char flag){
+    public Boolean horizontalOrVeritcalWinStatus(char playerId, char flag) {
 
-        if(flag == 'H'){
+        if (flag == 'H') {
 
         }
 
-        for(int row=0;row<BOARD_NUMBER;row++){
-            int totalPostion =0;
-            for(int col=0;col<BOARD_NUMBER;col++){
-                if(flag == 'H' && board[row][col] == playerId){
-                    totalPostion ++;
-                }
-                else if(flag == 'V' && board[col][row] == playerId){
-                    totalPostion ++;
+        for (int row = 0; row < BOARD_NUMBER; row++) {
+            int totalPostion = 0;
+            for (int col = 0; col < BOARD_NUMBER; col++) {
+                if (flag == 'H' && board[row][col] == playerId) {
+                    totalPostion++;
+                } else if (flag == 'V' && board[col][row] == playerId) {
+                    totalPostion++;
                 }
             }
-            if(totalPostion == BOARD_NUMBER){
+            if (totalPostion == BOARD_NUMBER) {
 
                 return true;
             }
+        }
+        return false;
+
+    }
+
+    public Boolean diagonalOneWinCase(char playerId) {
+
+        int totalposition = 0;
+        for (int row = 0, col = 0; row < BOARD_NUMBER; row++, col++) {
+
+            if (board[row][col] == playerId) {
+                totalposition++;
+            }
+        }
+        if (totalposition == BOARD_NUMBER) {
+            return true;
         }
         return false;
 

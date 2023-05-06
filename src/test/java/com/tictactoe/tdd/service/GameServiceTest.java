@@ -153,4 +153,44 @@ public class GameServiceTest {
         Assertions.assertEquals(true,gameService.horizontalOrVeritcalWinStatus('O','V'));
     }
 
+    @Test
+    public void playerODiagonalOneWinCase(){
+        Player play1 = new Player('O',0,0);
+        Player play2 = new Player('O',1,1);
+        Player play3 = new Player('O',2,2);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+
+
+        Assertions.assertEquals(true,gameService.diagonalOneWinCase('O'));
+    }
+    @Test
+    public void playerXDiagonalOneWinCase(){
+        Player play1 = new Player('X',0,0);
+        Player play2 = new Player('X',1,1);
+        Player play3 = new Player('X',2,2);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+
+
+        Assertions.assertEquals(true,gameService.diagonalOneWinCase('X'));
+    }
+    @Test
+    public void failedplayerXDiagonalOneWinCase(){
+        Player play1 = new Player('X',0,0);
+        Player play2 = new Player('X',1,1);
+        Player play3 = new Player('X',2,0);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+
+
+        Assertions.assertEquals(false,gameService.diagonalOneWinCase('X'));
+    }
+
 }
