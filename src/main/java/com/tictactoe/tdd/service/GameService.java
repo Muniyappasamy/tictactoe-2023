@@ -43,14 +43,24 @@ public class GameService {
 
     }
 
-    public Boolean diagonalOneWinCase(char playerId) {
-
+    public Boolean diagonalOneOrTwoWinCase(char playerId, char flag) {
+        int row = 0;
+        int col = 0;
+        if (flag == 'T') {
+            col = BOARD_NUMBER - 1;
+        }
         int totalposition = 0;
-        for (int row = 0, col = 0; row < BOARD_NUMBER; row++, col++) {
+        for (; row < BOARD_NUMBER; ) {
 
             if (board[row][col] == playerId) {
                 totalposition++;
             }
+            if (flag == 'T') {
+                col--;
+            } else {
+                col++;
+            }
+            row++;
         }
         if (totalposition == BOARD_NUMBER) {
             return true;
@@ -58,22 +68,5 @@ public class GameService {
         return false;
 
     }
-
-    public Boolean diagonalTwoWinCase(char playerId) {
-
-        int totalposition = 0;
-        for (int row = BOARD_NUMBER - 1, col = 0; row >= 0; row--, col++) {
-
-            if (board[row][col] == playerId) {
-                totalposition++;
-            }
-        }
-        if (totalposition == BOARD_NUMBER) {
-            return true;
-        }
-        return false;
-
-    }
-
 
 }
