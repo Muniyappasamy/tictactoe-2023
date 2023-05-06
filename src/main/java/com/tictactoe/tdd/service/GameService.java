@@ -21,10 +21,6 @@ public class GameService {
 
     public Boolean horizontalOrVeritcalWinStatus(char playerId, char flag) {
 
-        if (flag == 'H') {
-
-        }
-
         for (int row = 0; row < BOARD_NUMBER; row++) {
             int totalPostion = 0;
             for (int col = 0; col < BOARD_NUMBER; col++) {
@@ -68,14 +64,14 @@ public class GameService {
                 diagonalOneOrTwoWinCase('X', 'O') ||
                 diagonalOneOrTwoWinCase('X', 'T')) {
             return "Player X WON";
-        }
-        else if(horizontalOrVeritcalWinStatus('O', 'H') ||
+        } else if (horizontalOrVeritcalWinStatus('O', 'H') ||
                 horizontalOrVeritcalWinStatus('O', 'V') ||
                 diagonalOneOrTwoWinCase('O', 'O') ||
-                diagonalOneOrTwoWinCase('O', 'T')){
+                diagonalOneOrTwoWinCase('O', 'T')) {
             return "Player O WON";
+        } else {
+            return checkMatchInprogressOrDraw();
         }
-        return "";
 
     }
 
