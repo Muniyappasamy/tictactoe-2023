@@ -2,11 +2,17 @@ package com.tictactoe.tdd.service;
 
 public class GameService {
 
-    char[][] board = new char[3][3];
+    char[][] board;
+    private static final int BOARD_NUMBER = 3;
 
-    public void play(int i,int j, char playerId){
+    public GameService(){
 
-        board[i][j] = playerId;
+        board = new char[BOARD_NUMBER][BOARD_NUMBER];
+
+    }
+    public void play(int row,int col, char playerId){
+
+        board[row][col] = playerId;
 
     }
 }
