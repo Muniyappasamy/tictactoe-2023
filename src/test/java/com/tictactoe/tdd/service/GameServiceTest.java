@@ -233,4 +233,50 @@ public class GameServiceTest {
         Assertions.assertEquals(false, gameService.diagonalOneOrTwoWinCase('X', 'T'));
     }
 
+    @Test
+    public void matchIsInDrawMode() {
+        Player play1 = new Player('X', 0, 0);
+        Player play2 = new Player('O', 0, 1);
+        Player play3 = new Player('O', 0, 2);
+        Player play4 = new Player('O', 1, 0);
+        Player play5 = new Player('X', 1, 1);
+        Player play6 = new Player('X', 1, 2);
+        Player play7 = new Player('X', 2, 0);
+        Player play8 = new Player('X', 2, 1);
+        Player play9 = new Player('O', 2, 2);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+        gameService.play(play4);
+        gameService.play(play5);
+        gameService.play(play6);
+        gameService.play(play7);
+        gameService.play(play8);
+        gameService.play(play9);
+
+
+        Assertions.assertEquals("Draw",gameService.checkMatchInprogressOrDraw());
+    }
+
+
+    @Test
+    public void matchIsInProgressMode() {
+        Player play1 = new Player('X', 0, 0);
+        Player play2 = new Player('O', 0, 1);
+        Player play3 = new Player('O', 0, 2);
+        Player play4 = new Player('O', 1, 0);
+        Player play5 = new Player('X', 1, 1);
+
+        gameService.play(play1);
+        gameService.play(play2);
+        gameService.play(play3);
+        gameService.play(play4);
+        gameService.play(play5);
+
+
+
+        Assertions.assertEquals("InProgress",gameService.checkMatchInprogressOrDraw());
+    }
+
 }

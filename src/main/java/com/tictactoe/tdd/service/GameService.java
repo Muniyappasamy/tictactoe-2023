@@ -43,6 +43,24 @@ public class GameService {
 
     }
 
+    public String checkMatchInprogressOrDraw() {
+        int xCounter = 0;
+        int oCounter = 0;
+        for (int row = 0; row < BOARD_NUMBER; row++) {
+            for (int col = 0; col < BOARD_NUMBER; col++) {
+                if (board[row][col] == 'X') {
+                    xCounter++;
+                } else if (board[row][col] == 'O') {
+                    oCounter++;
+                }
+            }
+        }
+        if (xCounter > oCounter && (xCounter + oCounter == BOARD_NUMBER * BOARD_NUMBER)) {
+            return "Draw";
+        }
+        return "InProgress";
+    }
+
     public Boolean diagonalOneOrTwoWinCase(char playerId, char flag) {
         int row = 0;
         int col = 0;
