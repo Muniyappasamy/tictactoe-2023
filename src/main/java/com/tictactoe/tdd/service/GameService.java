@@ -61,6 +61,18 @@ public class GameService {
         return "InProgress";
     }
 
+    public String findGameState() {
+
+        if (horizontalOrVeritcalWinStatus('X', 'H') ||
+                horizontalOrVeritcalWinStatus('X', 'V') ||
+                diagonalOneOrTwoWinCase('X', 'O') ||
+                diagonalOneOrTwoWinCase('X', 'T')) {
+            return "Player X WON";
+        }
+        return "";
+
+    }
+
     public Boolean diagonalOneOrTwoWinCase(char playerId, char flag) {
         int row = 0;
         int col = 0;
